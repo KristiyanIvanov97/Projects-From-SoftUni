@@ -1,39 +1,41 @@
 import random
+moves = ["rock", "paper", "scissors"]
 
-rock = "Rock"
-paper = "Paper"
-scissors = "Scissors"
-computer_move = ""
-player_move = input("Choose [r]ock, [p]aper or [s]cissors: ")
+while True:
+    player_move = input("Choose [r]ock, [p]aper or [s]cissors: ").lower()
 
-if player_move == "r":
-    player_move = rock
-elif player_move == "p":
-    player_move = paper
-elif player_move == "s":
-    player_move = scissors
-else:
-    raise SystemExit("Invalid Input.Try again...")
+    if player_move == "r":
+        player_choice = moves[0]
+    elif player_move == "p":
+        player_choice = moves[1]
+    elif player_move == "s":
+        player_choice = moves[2]
+    else:
+        print("Invalid choice.Try again...")
+        continue
 
-computer_random_number = random.randint(1, 3)
-computer_move = ""
+    computer_choice = random.choice(moves)
+    print(F"You chose : {player_choice.upper()} \nComputer chose : {computer_choice.upper()}")
 
-if computer_random_number == 1:
-    computer_move = rock
-elif computer_random_number == 2:
-    computer_move = paper
-else:
-    computer_move = scissors
+    if player_choice == computer_choice:
+        print(F"You both chose : {player_choice.upper()} \nIt's a tie!")
+    elif player_choice == "scissors":
+        if computer_choice == "paper":
+            print("Scissors cuts paper! You win!")
+        else:
+            print("Rock smashes scissors! You loose!")
+    elif player_choice == "paper":
+        if computer_choice == "rock":
+            print("Paper covers rock! You win!")
+        else:
+            print("Scissors cuts paper! You loose!")
+    elif player_choice == "rock":
+        if computer_choice == "scissors":
+            print("Rock crushes scissors! You win!")
+        else:
+            print("Paper covers rock! You loose!")
 
-print(f"The computer chose {computer_move}.")
-
-
-if (player_move == "Rock" and computer_move == "Scissors") or \
-        (player_move == "Paper" and computer_move == "Rock") or \
-        (player_move == "Scissors" and computer_move == "Paper"):
-    print("You win!")
-elif player_move == computer_move:
-    print("Draw!")
-else:
-    print("You lose!")
+    continue_game = input("If you want to continue playing type [y] for 'Yes' or [n] for 'No'\n").lower()
+    if continue_game != "y":
+        break
 
