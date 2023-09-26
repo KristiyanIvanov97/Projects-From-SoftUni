@@ -1,5 +1,4 @@
 import random
-
 from colorama import Fore
 
 moves = ["rock", "paper", "scissors"]
