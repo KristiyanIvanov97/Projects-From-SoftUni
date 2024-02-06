@@ -20,7 +20,7 @@ def display_image(image_url: str) -> None:
 
 def get_image_url() -> str:
     headers = {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMzNlM2FlMDMtZDhmMi00MTQ0LTllYTEtMWVlZGNhOGUwOGE0IiwidHlwZSI6ImFwaV90b2tlbiJ9.Mj64dWBB_bQiPF19RVPh7iZK9rRxUh7IxfE0jWejgB4"
+        "Authorization": "Bearer <token>"
     }
 
     url = "https://api.edenai.run/v2/image/generation"
